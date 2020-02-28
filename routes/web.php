@@ -28,3 +28,5 @@ Route::get('/xin-chao', function () {
 Route::get('/danh-sach-lop-hoc', "Webcontroller@classRoom");
 
 // Route::Method(path_string, Controller@function_in_controller);
+Route::get("/home-page","WebController@homePage");
+Route::get("/product","WebController@product");
