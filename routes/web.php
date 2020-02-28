@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 //Route::METHOD(path_string,HANDLE_FUNCTION);
 // method: post get put delete .... CRUD
 
