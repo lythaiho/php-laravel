@@ -101,12 +101,12 @@ class Webcontroller extends Controller
             ],
 
         ];
-       return view("home-page",["products"=>$products]);
+        return view("home-page",["products"=>$products]);
     }
 
     public function product(){
 
-       return view("product");
+        return view("product");
     }
 
 }
