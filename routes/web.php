@@ -17,15 +17,10 @@ Route::get('/', function () {
 //Route::METHOD(path_string,HANDLE_FUNCTION);
 // method: post get put delete .... CRUD
 
-Route::get('/xin-chao', function () {
-   echo "Xin chao tat ca moi nguoi";
-});
-
 /*
  *Luu ý
  *chạy URL trên trình duyệt -> Method GET
  */
-Route::get('/danh-sach-lop-hoc', "Webcontroller@classRoom");
 
 // Route::Method(path_string, Controller@function_in_controller);
 Route::get("/home-page","WebController@homePage");
