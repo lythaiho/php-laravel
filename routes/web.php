@@ -20,5 +20,5 @@
  */
 
 // Route::Method(path_string, Controller@function_in_controller);
-Route::get("/home-page","WebController@homePage");
+Route::get("/","WebController@homePage");
 Route::get("/product","WebController@product");
