@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 //Route::METHOD(path_string,HANDLE_FUNCTION);
 // method: post get put delete .... CRUD
 
@@ -25,5 +28,5 @@ Route::get('/xin-chao', function () {
 Route::get('/danh-sach-lop-hoc', "Webcontroller@classRoom");
 
 // Route::Method(path_string, Controller@function_in_controller);
-Route::get("/","WebController@homePage");
+Route::get("/home-page","WebController@homePage");
 Route::get("/product","WebController@product");
