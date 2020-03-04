@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use App\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
@@ -23,5 +24,35 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
+    ];
+});
+//Random Category
+//$factory->define(\App\Category::class, function (Faker $faker) {
+//
+//    return [
+//        'category_name' => $faker->unique()->name
+//    ];
+//});
+
+//Random Brand
+//$factory->define(\App\Brand::class, function (Faker $faker) {
+//
+//    return [
+//        'brand_name' => $faker->unique()->name
+//    ];
+//});
+
+$factory->define(\App\Product::class, function (Faker $faker) {
+
+    return [
+        'product_name' => $faker->unique()->name,
+        'product_desc' => $faker->text,
+        'thumbnail' =>'img/laptops'.random_int(1,4).'.png',
+        'gallery' => 'img/laptops'.random_int(1,4).'.png' . "," . 'img/laptops'.random_int(1,4).'.png',
+        'price' => random_int(1,1000),
+        'quantity' => random_int(1,100),
+        'category_id' => 1,//vi vua chay random category 100
+        'brand_id' => random_int(1,6),//vi vua chay random brand 100
+
     ];
 });

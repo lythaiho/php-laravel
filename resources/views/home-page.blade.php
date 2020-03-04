@@ -1,3 +1,4 @@
+
 @extends('layout')
 @section('title',"Trang chủ")
 
@@ -96,47 +97,19 @@
                             <!-- tab -->
                             <div id="Laptops" class="tab-pane active">
                                 <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Laptop")
+                                @foreach ($laptops as $l)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$l->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$l->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                            <sup>đ</sup></del>
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$l->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$l->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -155,56 +128,27 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
                                 <div id="slick-nav-1" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                             <!-- tab -->
                             <div id="Smartphones" class="tab-pane">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Smartphones")
+                                <div class="products-slick" data-nav="#slick-nav-2">
+                                @foreach ($smartphone as $p)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$p->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$p->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                            <sup>đ</sup></del>
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -223,56 +167,27 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
-                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                <div id="slick-nav-2" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                             <!-- tab -->
                             <div id="Cameras" class="tab-pane">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Camera")
+                                <div class="products-slick" data-nav="#slick-nav-3">
+                                @foreach ($camera as $p)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$p->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$p->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                            <sup>đ</sup></del>
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -291,60 +206,27 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
-                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                <div id="slick-nav-3" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                             <!-- tab -->
                             <div id="Accessories" class="tab-pane">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Accessories")
+                                <div class="products-slick" data-nav="#slick-nav-4">
+                                @foreach ($accessories as $p)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$p->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$p->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <?php
-                                                        $oldPrince = $p['old-prince'];?>
-                                                        @if(strlen($oldPrince)>0)
-                                                            <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                                <sup>đ</sup></del>
-                                                        @endif
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -363,10 +245,9 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
-                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                <div id="slick-nav-4" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                         </div>
@@ -456,47 +337,19 @@
                             <!-- tab -->
                             <div id="Laptop-sell" class="tab-pane active">
                                 <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Laptop")
+                                @foreach ($laptops as $p)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$p->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$p->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                            <sup>đ</sup></del>
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -515,56 +368,27 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
                                 <div id="slick-nav-1" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                             <!-- tab -->
                             <div id="Smartphone-sell" class="tab-pane">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Smartphones")
+                                <div class="products-slick" data-nav="#slick-nav-2">
+                                @foreach ($smartphone as $p)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$p->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$p->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                            <sup>đ</sup></del>
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -583,56 +407,27 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
-                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                <div id="slick-nav-2" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                             <!-- tab -->
                             <div id="Camera-sell" class="tab-pane">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Camera")
+                                <div class="products-slick" data-nav="#slick-nav-3">
+                                @foreach ($camera as $p)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$p->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$p->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                            <sup>đ</sup></del>
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -651,56 +446,27 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
-                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                <div id="slick-nav-3" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                             <!-- tab -->
                             <div id="Accessorie-sell" class="tab-pane">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                <?php foreach ($products as $p): ?>
-                                <?php
-                                $category = $p['category'];
-                                ?>
-                                @if($category =="Accessories")
+                                <div class="products-slick" data-nav="#slick-nav-4">
+                                @foreach ($accessories as $p)
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="<?php echo $p['image'];?>" alt="">
-                                                <div class="product-label">
-                                                    <?php
-                                                    $sale = $p['sale'];
-                                                    $new = $p['new'];  ?>
-                                                    @if(strlen($sale)>0)
-                                                        <span class="sale"><?php echo $p['sale'];?></span>
-                                                    @endif
-
-                                                    @if(strlen($new)>0)
-                                                        <span class="new"><?php echo $p['new'];?></span>
-                                                    @endif
-                                                </div>
+                                                <img src="{{$p->thumbnail}}" alt="">
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category"><?php echo $p['category'];?></p>
+                                                <p class="product-category">{{$p->category_id}}</p>
                                                 <h3 class="product-name"><a
-                                                            href="#"><?php echo checkString($p['name'], 22);?></a></h3>
-                                                <h4 class="product-price"><?php echo $p['price'];?><sup>đ</sup>
-                                                    <?php
-                                                    $oldPrince = $p['old-prince'];?>
-                                                    @if(strlen($oldPrince)>0)
-                                                        <del class="product-old-price"><?php echo $p['old-prince'];?>
-                                                            <sup>đ</sup></del>
-                                                    @endif
-                                                </h4>
+                                                            href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                 <div class="product-rating">
-                                                    <?php
-                                                    $rating = $p['rating'];
-                                                    for ($i = 0; $i < $rating; $i++) {?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php }
-                                                    ?>
+
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -719,10 +485,9 @@
                                             </div>
                                         </div>
                                         <!-- /product -->
-                                    @endif
-                                    <?php endforeach; ?>
+                                    @endforeach
                                 </div>
-                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                <div id="slick-nav-4" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
                         </div>
