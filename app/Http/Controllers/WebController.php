@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -25,10 +27,23 @@ class Webcontroller extends Controller
         return view("product",["product"=>$product,"product123"=>$product123]);
 
     }
-    public function store(){
-        $category = Product::where("category_id",1)->take(6)->orderBy('product_name','asc')->get();
-        $categorys = Product::where("category_id",1)->take(3)-> orderBy('price')->get();
-        return view("store",['category'=>$category],['categorys'=>$categorys]);
+    public function store(Request $request) {
+        $categoryId = $request->get('categoryId');
+        $Category= Category::get();
+        $Brand= Brand::get();
+
+        if ($categoryId) {
+            $category = Product::where("category_id",$categoryId)->take(6)->orderBy('price','desc')->get();
+            $categorys = Product::where("category_id", $categoryId)->take(3)-> orderBy('price')->get();
+        }
+        else {
+            $category = Product::take(6)->orderBy('price','desc')->get();
+            $categorys = Product::take(3)-> orderBy('price')->get();
+        }
+
+
+
+        return view("store",['category'=>$category,'Category'=>$Category,'brand'=>$Brand,'categorys'=>$categorys]);
     }
     public function checkout(){
 
