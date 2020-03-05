@@ -107,7 +107,7 @@
                                 <img src="{{$p->thumbnail}}" alt="">
                             </div>
                             <div class="product-body">
-                                <p class="product-category">{{$p->category_id}}</p>
+                                <p class="product-category">{{$p->category_name}}</p>
                                 <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                             </div>
@@ -156,17 +156,21 @@
                                     <img src="{{$p->thumbnail}}" alt="">
                                 </div>
                                 <div class="product-body">
-                                    <p class="product-category">{{$p->category_id}}</p>
+                                    <p class="product-category">{{$p->category_name}}</p>
                                     <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
                                     <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                     <div class="product-btns">
                                         <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                         <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        <a href="/product?product_id={{$p->id}}">
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="add-to-cart">
-                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    <a href="/checkout?product_id={{$p->id}}">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

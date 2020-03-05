@@ -13,8 +13,7 @@
                     <ul class="breadcrumb-tree">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">All Categories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Headphones</a></li>
+                        <li><a href="#">???</a></li>
                         <li class="active"><?php echo $product['product_name'];?></li>
                     </ul>
                 </div>

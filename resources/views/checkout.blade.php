@@ -135,12 +135,8 @@
                     </div>
                     <div class="order-products">
                         <div class="order-col">
-                            <div>1x Product Name Goes Here</div>
-                            <div>$980.00</div>
-                        </div>
-                        <div class="order-col">
-                            <div>2x Product Name Goes Here</div>
-                            <div>$980.00</div>
+                            <div>{{$product->product_name}}</div>
+                            <div>{{$product->price}}<sup>đ</sup></div>
                         </div>
                     </div>
                     <div class="order-col">
@@ -149,7 +145,7 @@
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total">$2940.00</strong></div>
+                        <div><strong class="order-total">{{$product->price}}</strong></div>
                     </div>
                 </div>
                 <div class="payment-method">
