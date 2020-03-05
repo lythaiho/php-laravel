@@ -19,14 +19,18 @@ class Webcontroller extends Controller
     }
 
     public function product(){
-        $products =Product::find(1);
-        return view("product");
+        $product =Product::find(1400);
+        $cate = $product['category_id'];
+        $product123 = Product::where("category_id",$cate)->take(4)->orderBy('product_name','asc')->get();
+        return view("product",["product"=>$product,"product123"=>$product123]);
+
     }
     public function store(){
-        $products =Product::where("category",5)->take(10)->orderBy('product_name','asc')->get();
-        
-        return view("store");
-    }public function checkout(){
+        $category = Product::where("category_id",1)->take(6)->orderBy('product_name','asc')->get();
+        $categorys = Product::where("category_id",1)->take(3)-> orderBy('price')->get();
+        return view("store",['category'=>$category],['categorys'=>$categorys]);
+    }
+    public function checkout(){
 
         return view("checkout");
     }
