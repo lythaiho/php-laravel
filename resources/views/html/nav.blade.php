@@ -5,12 +5,10 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/store">Categories</a></li>
-                <li><a href="/store?categoryId=1">Laptops</a></li>
-                <li><a href="/store?categoryId=2">Smartphones</a></li>
-                <li><a href="/store?categoryId=3">Cameras</a></li>
-                <li><a href="/store?categoryId=4">Accessories</a></li>
+                <li class="active"><a href="{{url("/")}}">Home</a></li>
+                @foreach(\App\Category::all() as $c)
+                    <li><a href="{{url("/store/{$c ->id}")}}">{{$c ->category_name}}</a></li>
+                @endforeach
             </ul>
             <!-- /NAV -->
         </div>

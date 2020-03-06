@@ -104,7 +104,7 @@
                         @foreach($categorys as $p)
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src="{{$p->thumbnail}}" alt="">
+                                <img src="{{asset("$p->thumbnail")}}" alt="">
                             </div>
                             <div class="product-body">
                                 <p class="product-category">{{$p->category_name}}</p>
@@ -153,7 +153,7 @@
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <div class="product-img">
-                                    <img src="{{$p->thumbnail}}" alt="">
+                                    <img src="{{asset("$p->thumbnail")}}" alt="">
                                 </div>
                                 <div class="product-body">
                                     <p class="product-category">{{$p->category_name}}</p>

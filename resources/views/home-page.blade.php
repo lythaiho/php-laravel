@@ -101,7 +101,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$l->thumbnail}}" alt="">
+                                                <img src="{{asset("$l->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$l->category_name}}</p>
@@ -116,7 +116,7 @@
                                                                 class="tooltipp">add to wishlist</span></button>
                                                     <button class="add-to-compare"><i class="fa fa-exchange"></i><span
                                                                 class="tooltipp">add to compare</span></button>
-                                                    <a href="/product?product_id={{$l->id}}">
+                                                    <a href="/product/{{$l->id}}">
                                                         <button class="quick-view"><i class="fa fa-eye"></i><span
                                                                     class="tooltipp">quick view</span></button>
                                                     </a>
@@ -142,7 +142,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$p->thumbnail}}" alt="">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$p->category_name}}</p>
@@ -164,7 +164,7 @@
                                                 </div>
                                             </div>
                                             <div class="add-to-cart">
-                                                <a href="/checkout?product_id={{$p->id}}">
+                                                <a href="{{$p->id}}">
                                                     <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                                 </a>
                                             </div>
@@ -182,7 +182,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$p->thumbnail}}" alt="">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$p->category_name}}</p>
@@ -222,7 +222,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$p->thumbnail}}" alt="">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$p->category_name}}</p>
@@ -346,7 +346,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$p->thumbnail}}" alt="">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$p->category_name}}</p>
@@ -386,7 +386,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$p->thumbnail}}" alt="">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$p->category_name}}</p>
@@ -426,7 +426,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$p->thumbnail}}" alt="">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$p->category_name}}</p>
@@ -466,7 +466,7 @@
                                     <!-- product -->
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="{{$p->thumbnail}}" alt="">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">{{$p->category_name}}</p>
