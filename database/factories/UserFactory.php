@@ -47,12 +47,12 @@ $factory->define(\App\Product::class, function (Faker $faker) {
     return [
         'product_name' => $faker->unique()->name,
         'product_desc' => $faker->text,
-        'thumbnail' =>'img/laptops'.random_int(1,4).'.png',
-        'gallery' => 'img/laptops'.random_int(1,4).'.png' . "," . 'img/laptops'.random_int(1,4).'.png',
+        'thumbnail' =>'img/tablet/tablet_ss'.random_int(1,5).'.png',
+        'gallery' => 'img/tablet/tablet_ss'.random_int(1,5).'.png' . "," . 'img/tablet/tablet_ss'.random_int(1,5).'.png'. "," . 'img/tablet/tablet_ss'.random_int(1,5).'.png',
         'price' => random_int(1,1000),
         'quantity' => random_int(1,100),
-        'category_id' => 1,//vi vua chay random category 100
-        'brand_id' => random_int(1,6),//vi vua chay random brand 100
+        'category_id' => 3,//vi vua chay random category 100
+        'brand_id' => 5,//vi vua chay random brand 100
 
     ];
 });

@@ -11,13 +11,14 @@ class Webcontroller extends Controller
 {
 
     public function homePage(){
+        $Category_new= Category::get();
+        $Category_hot= Category::get();
         $products = Product::take(10)->orderBy('product_name','asc')->get(); // trả lại một collection với mỗi phần tử là 1 object Product
-        $laptops = Product::where("category_id",1)->take(10)->orderBy('product_name','asc')->get();
-        $smartphone = Product::where("category_id",2)->take(10)->orderBy('product_name','asc')->get();
-        $camera = Product::where("category_id",3)->take(10)->orderBy('product_name','asc')->get();
-        $accessories = Product::where("category_id",4)->take(10)->orderBy('product_name','asc')->get();
-        return view("home-page",["products"=>$products,"laptops"=>$laptops,
-            "smartphone"=>$smartphone,"camera"=>$camera,"accessories"=>$accessories]);
+        $Laptops = Product::where("category_id",1)->take(10)->orderBy('product_name','asc')->get();
+        $Smartphone = Product::where("category_id",2)->take(10)->orderBy('product_name','asc')->get();
+        $Tablet = Product::where("category_id",3)->take(10)->orderBy('product_name','asc')->get();
+        return view("home-page",["Category_new"=>$Category_new,"Category_hot"=>$Category_hot,"products"=>$products,"Laptops"=>$Laptops,
+            "Smartphone"=>$Smartphone,"Tablet"=>$Tablet]);
     }
 
     public function product($id){
