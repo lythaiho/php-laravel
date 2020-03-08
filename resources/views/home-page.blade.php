@@ -83,7 +83,11 @@
                         <div class="section-nav">
                             <ul class="section-tab-nav tab-nav">
                                 @foreach($Category_new as $cate)
-                                <li><a data-toggle="tab" href="#{{$cate->category_name}}">{{$cate->category_name}}</a></li>
+                                    @if($loop->first)
+                                        <li class="active"><a data-toggle="tab" href="#{{$cate->category_name}}">{{$cate->category_name}}</a></li>
+                                            @else
+                                        <li><a data-toggle="tab" href="#{{$cate->category_name}}">{{$cate->category_name}}</a></li>
+                                                    @endif
                                 @endforeach
                             </ul>
                         </div>
@@ -97,7 +101,11 @@
                         <div class="products-tabs">
                             @foreach($Category_new as $cate)
                             <!-- tab -->
-                            <div id="{{$cate->category_name}}" class="tab-pane">
+                                @if($loop->first)
+                            <div id="{{$cate->category_name}}" class="tab-pane active">
+                                @else
+                                    <div id="{{$cate->category_name}}" class="tab-pane">
+                                @endif
                                 <div class="products-slick" data-nav="#{{$cate->category_name}}">
                                 @foreach (${$cate['category_name']} as $p)
                                     <!-- product -->
@@ -208,7 +216,11 @@
                         <div class="section-nav">
                             <ul class="section-tab-nav tab-nav">
                                 @foreach($Category_new as $cate)
-                                    <li><a data-toggle="tab" href="#{{$cate->category_name}}_1">{{$cate->category_name}}</a></li>
+                                    @if($loop->first)
+                                        <li class="active"><a data-toggle="tab" href="#{{$cate->category_name}}">{{$cate->category_name}}</a></li>
+                                    @else
+                                        <li><a data-toggle="tab" href="#{{$cate->category_name}}">{{$cate->category_name}}</a></li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
@@ -222,7 +234,12 @@
                         <div class="products-tabs">
                         @foreach($Category_new as $cate)
                             <!-- tab -->
-                                <div id="{{$cate->category_name}}_1" class="tab-pane">
+                                @if($loop->first)
+                                    <div id="{{$cate->category_name}}_1" class="tab-pane active">
+                                @else
+                                            <div id="{{$cate->category_name}}_1" class="tab-pane">
+                                @endif
+
                                     <div class="products-slick" data-nav="#{{$cate->category_name}}_1">
                                     @foreach (${$cate['category_name']} as $p)
                                         <!-- product -->
