@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5b3c491-2487-4bdb-8e84-94b120cb8601" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/hotdeal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/countdown.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/js.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/js.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="b5b3c491-2487-4bdb-8e84-94b120cb8601" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/phpoption/phpoption/" />
     <ignored path="$PROJECT_DIR$/vendor/symfony/css-selector/" />
@@ -54,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home-page.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="179" column="88" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="88" />
+            <state relative-caret-position="235">
+              <caret line="179" column="88" selection-start-line="179" selection-start-column="88" selection-end-line="179" selection-end-column="88" />
               <folding>
                 <element signature="e#378#2584#0#HTML" />
                 <element signature="n#div#2;n#div#1;n#!!top" />
@@ -105,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
@@ -191,10 +184,10 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WebController.php" />
         <option value="$PROJECT_DIR$/resources/views/html/nav.blade.php" />
-        <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/resources/js/countdown.js" />
         <option value="$PROJECT_DIR$/resources/views/html/js.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home-page.blade.php" />
+        <option value="$PROJECT_DIR$/config/database.php" />
       </list>
     </option>
   </component>
@@ -460,12 +453,12 @@
       <workItem from="1583479126424" duration="9057000" />
       <workItem from="1583504536523" duration="1934000" />
       <workItem from="1583590268068" duration="25922000" />
-      <workItem from="1583671593788" duration="3216000" />
+      <workItem from="1583671593788" duration="4041000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134713000" />
+    <option name="totallyTimeSpent" value="135538000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -779,20 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/html/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-952">
@@ -816,14 +795,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home-page.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="179" column="88" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="88" />
+        <state relative-caret-position="235">
+          <caret line="179" column="88" selection-start-line="179" selection-start-column="88" selection-end-line="179" selection-end-column="88" />
           <folding>
             <element signature="e#378#2584#0#HTML" />
             <element signature="n#div#2;n#div#1;n#!!top" />
             <element signature="e#11016#17804#0#HTML" />
             <element signature="e#17848#19500#0#HTML" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
