@@ -5,9 +5,17 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
+                @if(url()->current()==url("/"))
                 <li class="active"><a href="{{url("/")}}">Home</a></li>
+                @else
+                    <li class=""><a href="{{url("/")}}">Home</a></li>
+                @endif
                 @foreach(\App\Category::all() as $c)
-                    <li><a href="{{url("/store/{$c ->id}")}}">{{$c ->category_name}}</a></li>
+                    @if(url()->current()== url("/store/{$c ->id}"))
+                    <li class="active"><a href="{{url("/store/{$c ->id}")}}">{{$c ->category_name}}</a></li>
+                    @else
+                        <li><a href="{{url("/store/{$c ->id}")}}">{{$c ->category_name}}</a></li>
+                        @endif
                 @endforeach
             </ul>
             <!-- /NAV -->
