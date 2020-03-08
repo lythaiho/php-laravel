@@ -230,11 +230,11 @@
                                     @foreach($Category_new as $cate)
                                         @if($loop->first)
                                             <li class="active"><a data-toggle="tab"
-                                                                  href="#{{$cate->category_name}}">{{$cate->category_name}}</a>
+                                                                  href="#{{$cate->category_name}}_1">{{$cate->category_name}}</a>
                                             </li>
                                         @else
                                             <li><a data-toggle="tab"
-                                                   href="#{{$cate->category_name}}">{{$cate->category_name}}</a></li>
+                                                   href="#{{$cate->category_name}}_1">{{$cate->category_name}}</a></li>
                                         @endif
                                     @endforeach
                                 </ul>
