@@ -5,3 +5,4 @@
 <script src="{{asset("js/jquery.zoom.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
 <script src="{{asset("js/custom.js")}}"></script>
+<script src="{{asset("js/countdown.js")}}"></script>

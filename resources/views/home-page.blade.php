@@ -166,188 +166,190 @@
             </div>
             <!-- /container -->
         </div>
-        <!-- /SECTION -->
+    </div>
+    <!-- /SECTION -->
 
-        <!-- HOT DEAL SECTION -->
-        <div id="hot-deal" class="section">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="hot-deal">
-                            <ul class="hot-deal-countdown">
-                                <li>
-                                    <div>
-                                        <h3>02</h3>
-                                        <span>Days</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h3>10</h3>
-                                        <span>Hours</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h3>34</h3>
-                                        <span>Mins</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h3>60</h3>
-                                        <span>Secs</span>
-                                    </div>
-                                </li>
+    <!-- HOT DEAL SECTION -->
+    <div id="hot-deal" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hot-deal">
+                        <ul class="hot-deal-countdown"  countdown="" data-date="March 20 2020 10:10:10">
+                            <li>
+                                <div>
+                                    <h3 data-days="">00</h3>
+                                    <span>Days</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3 data-hours="">0</h3>
+                                    <span>Hours</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3 data-minutes="">0</h3>
+                                    <span>Mins</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3 data-seconds="">0</h3>
+                                    <span>Secs</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <h2 class="text-uppercase">hot deal this week</h2>
+                        <p>New Collection Up to 50% OFF</p>
+                        <a class="primary-btn cta-btn" href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /HOT DEAL SECTION -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title">Top Selling</h3>
+                        <div class="section-nav">
+                            <ul class="section-tab-nav tab-nav">
+                                @foreach($Category_new as $cate)
+                                    @if($loop->first)
+                                        <li class="active"><a data-toggle="tab"
+                                                              href="#{{$cate->category_name}}_1">{{$cate->category_name}}</a>
+                                        </li>
+                                    @else
+                                        <li><a data-toggle="tab"
+                                               href="#{{$cate->category_name}}_1">{{$cate->category_name}}</a></li>
+                                    @endif
+                                @endforeach
                             </ul>
-                            <h2 class="text-uppercase">hot deal this week</h2>
-                            <p>New Collection Up to 50% OFF</p>
-                            <a class="primary-btn cta-btn" href="#">Shop now</a>
                         </div>
                     </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="products-tabs">
+                        @foreach($Category_new as $cate)
+                            <!-- tab -->
+                                @if($loop->first)
+                                    <div id="{{$cate->category_name}}_1" class="tab-pane active">
+                                        @else
+                                            <div id="{{$cate->category_name}}_1" class="tab-pane">
+                                                @endif
+
+                                                <div class="products-slick" data-nav="#{{$cate->category_name}}_1">
+                                                @foreach (${$cate['category_name']} as $p)
+                                                    <!-- product -->
+                                                        <div class="product">
+                                                            <div class="product-img">
+                                                                <img src="{{asset("$p->thumbnail")}}" alt="">
+                                                            </div>
+                                                            <div class="product-body">
+                                                                <p class="product-category">{{$p->category_name}}</p>
+                                                                <h3 class="product-name"><a
+                                                                            href="#">{{$p->product_name}}</a></h3>
+                                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup>
+                                                                </h4>
+                                                                <div class="product-rating">
+
+                                                                </div>
+                                                                <div class="product-btns">
+                                                                    <button class="add-to-wishlist"><i
+                                                                                class="fa fa-heart-o"></i><span
+                                                                                class="tooltipp">add to wishlist</span>
+                                                                    </button>
+                                                                    <button class="add-to-compare"><i
+                                                                                class="fa fa-exchange"></i><span
+                                                                                class="tooltipp">add to compare</span>
+                                                                    </button>
+                                                                    <a href="/product/{{$p->id}}">
+                                                                        <button class="quick-view"><i
+                                                                                    class="fa fa-eye"></i><span
+                                                                                    class="tooltipp">quick view</span>
+                                                                        </button>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="add-to-cart">
+                                                                <a href="/checkout/{{$p->id}}">
+                                                                    <button class="add-to-cart-btn"><i
+                                                                                class="fa fa-shopping-cart"></i> add
+                                                                        to cart
+                                                                    </button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /product -->
+                                                    @endforeach
+                                                </div>
+                                                <div id="{{$cate->category_name}}_1"
+                                                     class="products-slick-nav"></div>
+                                            </div>
+                                            <!-- /tab -->
+                                            @endforeach
+                                    </div>
+                        </div>
+                    </div>
+                    <!-- Products tab & slick -->
                 </div>
                 <!-- /row -->
             </div>
             <!-- /container -->
         </div>
-        <!-- /HOT DEAL SECTION -->
+    </div>
+    <!-- /SECTION -->
 
-        <!-- SECTION -->
-        <div class="section">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-
-                    <!-- section title -->
-                    <div class="col-md-12">
-                        <div class="section-title">
-                            <h3 class="title">Top Selling</h3>
-                            <div class="section-nav">
-                                <ul class="section-tab-nav tab-nav">
-                                    @foreach($Category_new as $cate)
-                                        @if($loop->first)
-                                            <li class="active"><a data-toggle="tab"
-                                                                  href="#{{$cate->category_name}}_1">{{$cate->category_name}}</a>
-                                            </li>
-                                        @else
-                                            <li><a data-toggle="tab"
-                                                   href="#{{$cate->category_name}}_1">{{$cate->category_name}}</a></li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
+    <div id="newsletter" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="newsletter">
+                        <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                        <form>
+                            <input class="input" type="email" placeholder="Enter Your Email">
+                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                        </form>
+                        <ul class="newsletter-follow">
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- /section title -->
-
-                    <!-- Products tab & slick -->
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="products-tabs">
-                            @foreach($Category_new as $cate)
-                                <!-- tab -->
-                                    @if($loop->first)
-                                        <div id="{{$cate->category_name}}_1" class="tab-pane active">
-                                            @else
-                                                <div id="{{$cate->category_name}}_1" class="tab-pane">
-                                                    @endif
-
-                                                    <div class="products-slick" data-nav="#{{$cate->category_name}}_1">
-                                                    @foreach (${$cate['category_name']} as $p)
-                                                        <!-- product -->
-                                                            <div class="product">
-                                                                <div class="product-img">
-                                                                    <img src="{{asset("$p->thumbnail")}}" alt="">
-                                                                </div>
-                                                                <div class="product-body">
-                                                                    <p class="product-category">{{$p->category_name}}</p>
-                                                                    <h3 class="product-name"><a
-                                                                                href="#">{{$p->product_name}}</a></h3>
-                                                                    <h4 class="product-price">{{$p->price}}<sup>đ</sup>
-                                                                    </h4>
-                                                                    <div class="product-rating">
-
-                                                                    </div>
-                                                                    <div class="product-btns">
-                                                                        <button class="add-to-wishlist"><i
-                                                                                    class="fa fa-heart-o"></i><span
-                                                                                    class="tooltipp">add to wishlist</span>
-                                                                        </button>
-                                                                        <button class="add-to-compare"><i
-                                                                                    class="fa fa-exchange"></i><span
-                                                                                    class="tooltipp">add to compare</span>
-                                                                        </button>
-                                                                        <a href="/product/{{$p->id}}">
-                                                                            <button class="quick-view"><i
-                                                                                        class="fa fa-eye"></i><span
-                                                                                        class="tooltipp">quick view</span>
-                                                                            </button>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="add-to-cart">
-                                                                    <a href="/checkout/{{$p->id}}">
-                                                                        <button class="add-to-cart-btn"><i
-                                                                                    class="fa fa-shopping-cart"></i> add
-                                                                            to cart
-                                                                        </button>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- /product -->
-                                                        @endforeach
-                                                    </div>
-                                                    <div id="{{$cate->category_name}}_1"
-                                                         class="products-slick-nav"></div>
-                                                </div>
-                                                <!-- /tab -->
-                                                @endforeach
-                                        </div>
-                            </div>
-                        </div>
-                        <!-- Products tab & slick -->
-                    </div>
-                    <!-- /row -->
                 </div>
-                <!-- /container -->
             </div>
-            <!-- /SECTION -->
-
-            <div id="newsletter" class="section">
-                <!-- container -->
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="newsletter">
-                                <p>Sign Up for the <strong>NEWSLETTER</strong></p>
-                                <form>
-                                    <input class="input" type="email" placeholder="Enter Your Email">
-                                    <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-                                </form>
-                                <ul class="newsletter-follow">
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /row -->
-                </div>
-                <!-- /container -->
-            </div>
-            <!-- /NEWSLETTER -->
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /NEWSLETTER -->
 @endsection
