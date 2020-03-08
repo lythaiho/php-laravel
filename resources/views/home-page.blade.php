@@ -22,11 +22,11 @@
                 <div class="col-md-4 col-xs-6">
                     <div class="shop">
                         <div class="shop-img">
-                            <img src="./img/shop01.png" alt="">
+                            <img src="{{asset("./img/banner/laptop.png")}}" alt="">
                         </div>
                         <div class="shop-body">
                             <h3>Laptop<br>Collection</h3>
-                            <a href="/store?categoryId=1" class="cta-btn">Shop now <i
+                            <a href="/store/1" class="cta-btn">Shop now <i
                                         class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -37,11 +37,11 @@
                 <div class="col-md-4 col-xs-6">
                     <div class="shop">
                         <div class="shop-img">
-                            <img src="./img/shop03.png" alt="">
+                            <img src="{{asset("./img/banner/smartphone.png")}}" alt="">
                         </div>
                         <div class="shop-body">
-                            <h3>Accessories<br>Collection</h3>
-                            <a href="/store?categoryId=4" class="cta-btn">Shop now <i
+                            <h3>Smartphone<br>Collection</h3>
+                            <a href="/store/2" class="cta-btn">Shop now <i
                                         class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -52,11 +52,11 @@
                 <div class="col-md-4 col-xs-6">
                     <div class="shop">
                         <div class="shop-img">
-                            <img src="./img/shop02.png" alt="">
+                            <img src="{{asset("./img/banner/tablet.png")}}" alt="">
                         </div>
                         <div class="shop-body">
-                            <h3>Cameras<br>Collection</h3>
-                            <a href="/store?categoryId=3" class="cta-btn">Shop now <i
+                            <h3>Tablet<br>Collection</h3>
+                            <a href="/store/3" class="cta-btn">Shop now <i
                                         class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -118,14 +118,14 @@
                                                                 class="tooltipp">add to wishlist</span></button>
                                                     <button class="add-to-compare"><i class="fa fa-exchange"></i><span
                                                                 class="tooltipp">add to compare</span></button>
-                                                    <a href="/product?product_id={{$p->id}}">
+                                                    <a href="/product/{{$p->id}}">
                                                         <button class="quick-view"><i class="fa fa-eye"></i><span
                                                                     class="tooltipp">quick view</span></button>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="add-to-cart">
-                                                <a href="/checkout?product_id={{$p->id}}">
+                                                <a href="/checkout/{{$p->id}}">
                                                     <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                                 </a>
                                             </div>
@@ -243,14 +243,14 @@
                                                                     class="tooltipp">add to wishlist</span></button>
                                                         <button class="add-to-compare"><i class="fa fa-exchange"></i><span
                                                                     class="tooltipp">add to compare</span></button>
-                                                        <a href="/product?product_id={{$p->id}}">
+                                                        <a href="/product/{{$p->id}}">
                                                             <button class="quick-view"><i class="fa fa-eye"></i><span
                                                                         class="tooltipp">quick view</span></button>
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div class="add-to-cart">
-                                                    <a href="/checkout?product_id={{$p->id}}">
+                                                    <a href="/checkout/{{$p->id}}">
                                                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                                     </a>
                                                 </div>

@@ -23,4 +23,4 @@
 Route::get("/","WebController@homePage");
 Route::get("/product/{id}","WebController@product");
 Route::get("/store/{id}","WebController@store");
-Route::get("/checkout","WebController@checkout");
+Route::get("/checkout/{id}","WebController@checkout");

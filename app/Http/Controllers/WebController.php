@@ -28,27 +28,16 @@ class Webcontroller extends Controller
         return view("product",["product"=>$product,"product_cate"=>$product_cate,"product_brand"=>$product_brand]);
 
     }
-    public function store(Request $request) {
-        $categoryId = $request->get('categoryId');
-        $Category= Category::get();
-        $Brand= Brand::get();
-
-        if ($categoryId) {
-            $category = Product::where("category_id",$categoryId)->take(6)->orderBy('price','desc')->get();
-            $categorys = Product::where("category_id", $categoryId)->take(3)-> orderBy('price')->get();
-        }
-        else {
-            $category = Product::take(6)->orderBy('price','desc')->get();
-            $categorys = Product::take(3)-> orderBy('price')->get();
-        }
-
-
-
-        return view("store",['category'=>$category,'Category'=>$Category,'brand'=>$Brand,'categorys'=>$categorys]);
+    public function store($id) {
+        $Category_name = Category::get();
+        $Brand_name = Brand::get();
+        $Category= Category::find($id);
+        $category= Product::where("category_id",$Category->id)->take(9)->orderBy('price','desc')->get();
+        $category_sell= Product::where("category_id",$Category->id)->take(6)->orderBy('price','desc')->get();
+       return view("store",['Category_name'=>$Category_name,'Brand_name'=>$Brand_name,'Category'=>$Category,'category'=>$category,'category_sell'=>$category_sell]);
     }
-    public function checkout(Request $resCheck){
-        $product_id = $resCheck->get('product_id');
-        $product =Product::find($product_id);
+    public function checkout($id){
+        $product =Product::find($id);
         return view("checkout",["product"=>$product]);
     }
 }

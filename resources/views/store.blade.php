@@ -23,7 +23,7 @@
                     <ul class="breadcrumb-tree">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">All Categories</a></li>
-                        <li><a href="#">???</a></li>
+                        <li><a href="#">{{$Category['category_name']}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,14 +45,14 @@
                     <div class="aside">
                         <h3 class="aside-title">Categories</h3>
                         <div class="checkbox-filter">
-                            @foreach($Category as $ca)
+                            @foreach($Category_name as $c)
 
                             <div class="input-checkbox">
                                 <input type="checkbox" id="category-1">
                                 <label for="category-1">
                                     <span></span>
-                                    {{$ca  -> category_name}}
-                                    <small>(120)</small>
+                                    {{$c  -> category_name}}
+                                    <small>(123)</small>
                                 </label>
                             </div>
                             @endforeach
@@ -84,7 +84,7 @@
                     <div class="aside">
                         <h3 class="aside-title">Brand</h3>
                         <div class="checkbox-filter">
-                            @foreach($brand as $b)
+                            @foreach($Brand_name as $b)
                             <div class="input-checkbox">
                                 <input type="checkbox" id="brand-1">
                                 <label for="brand-1">
@@ -101,7 +101,7 @@
                     <!-- aside Widget -->
                     <div class="aside">
                         <h3 class="aside-title">Top selling</h3>
-                        @foreach($categorys as $p)
+                        @foreach($category_sell as $p)
                         <div class="product-widget">
                             <div class="product-img">
                                 <img src="{{asset("$p->thumbnail")}}" alt="">
@@ -162,13 +162,13 @@
                                     <div class="product-btns">
                                         <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                         <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                        <a href="/product?product_id={{$p->id}}">
+                                        <a href="/product/{{$p->id}}">
                                             <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="add-to-cart">
-                                    <a href="/checkout?product_id={{$p->id}}">
+                                    <a href="/checkout/{{$p->id}}">
                                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                     </a>
                                 </div>
