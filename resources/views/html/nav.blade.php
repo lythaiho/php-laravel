@@ -11,8 +11,8 @@
                     <li class=""><a href="{{url("/")}}">Home</a></li>
                 @endif
                 @foreach(\App\Category::all() as $c)
-                    @if(url()->current()== url("/store/{$c ->id}"))
-                    <li class="active"><a href="{{url("/store/{$c ->id}")}}">{{$c ->category_name}}</a></li>
+                    @if(url()->current()== url("/store/{$c ->id}") || url()->current()== url("/product/{$c ->id}"))
+                    <li class="active"><a href="{{url("/store/{$c ->category_id}")}}">{{$c->category_name}}</a></li>
                     @else
                         <li><a href="{{url("/store/{$c ->id}")}}">{{$c ->category_name}}</a></li>
                         @endif

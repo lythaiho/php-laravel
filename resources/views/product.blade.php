@@ -31,21 +31,15 @@
                 <!-- Product main img -->
                 <div class="col-md-5 col-md-push-2">
                     <div id="product-main-img">
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
-
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
-
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
-
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
+                        @php
+                            $gallery = $product->gallery;
+                            $gallery = explode(",",$gallery);
+                        @endphp
+                        @foreach($gallery as $gallery)
+                            <div class="product-preview">
+                                <img src="{{asset("$gallery")}}" alt="">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <!-- /Product main img -->
@@ -156,7 +150,7 @@
                             <img src="{{asset("$p->thumbnail")}}" alt="">
                         </div>
                         <div class="product-body">
-                            <p class="product-category">{{$p->category_id}}</p>
+                            <p class="product-category">{{$product ->Brand->brand_name}}</p>
                             <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
                             <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                             <div class="product-rating">
@@ -204,7 +198,7 @@
                                 <img src="{{asset("$p->thumbnail")}}" alt="">
                             </div>
                             <div class="product-body">
-                                <p class="product-category">{{$p->category_id}}</p>
+                                <p class="product-category">{{$product ->Brand->brand_name}}</p>
                                 <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                 <div class="product-rating">

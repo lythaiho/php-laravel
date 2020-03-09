@@ -40,8 +40,7 @@
                                 <option value="0">All Categories</option>
                                 <option value="1">Laptops</option>
                                 <option value="2">Smartphones</option>
-                                <option value="3">Cameras</option>
-                                <option value="4">Laptops</option>
+                                <option value="3">Tablet</option>
                             </select>
                             <input class="input" placeholder="Search here">
                             <button class="search-btn">Search</button>
