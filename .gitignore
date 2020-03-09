@@ -12,3 +12,5 @@ yarn-error.log
 .idea
 .idea/workspace.xml
 .idea/workspace.xml
+.config/database.php
+.idea/workspace.xml
