@@ -117,7 +117,7 @@
                                                                 <img src="{{asset("$p->thumbnail")}}" alt="">
                                                             </div>
                                                             <div class="product-body">
-                                                                <p class="product-category">{{$p->category_name}}</p>
+                                                                <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
                                                                             href="#">{{$p->product_name}}</a></h3>
                                                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
@@ -264,7 +264,7 @@
                                                                 <img src="{{asset("$p->thumbnail")}}" alt="">
                                                             </div>
                                                             <div class="product-body">
-                                                                <p class="product-category">{{$p->category_name}}</p>
+                                                                <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
                                                                             href="#">{{$p->product_name}}</a></h3>
                                                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup>

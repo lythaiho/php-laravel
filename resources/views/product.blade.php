@@ -12,8 +12,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">All Categories</a></li>
-                        <li><a href="#">???</a></li>
+                        <li><a href="{{url("/store/{$product ->category_id}")}}">{{$product ->Category->category_name}}</a></li>
                         <li class="active">{{$product ->product_name}}</li>
                     </ul>
                 </div>
@@ -54,21 +53,15 @@
                 <!-- Product thumb imgs -->
                 <div class="col-md-2  col-md-pull-5">
                     <div id="product-imgs">
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
-
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
-
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
-
-                        <div class="product-preview">
-                            <img src="{{asset("$product->thumbnail")}}" alt="">
-                        </div>
+                        @php
+                            $gallery = $product->gallery;
+                            $gallery = explode(",",$gallery);
+                        @endphp
+                        @foreach($gallery as $gallery)
+                            <div class="product-preview">
+                                <img src="{{asset("$gallery")}}" alt="">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <!-- /Product thumb imgs -->
@@ -171,7 +164,12 @@
                             <div class="product-btns">
                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                 <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                <a href="/product/{{$p->id}}">
+                                    <button class="quick-view"><i
+                                                class="fa fa-eye"></i><span
+                                                class="tooltipp">quick view</span>
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         <div class="add-to-cart">
@@ -214,7 +212,12 @@
                                 <div class="product-btns">
                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                     <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                    <a href="/product/{{$p->id}}">
+                                        <button class="quick-view"><i
+                                                    class="fa fa-eye"></i><span
+                                                    class="tooltipp">quick view</span>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="add-to-cart">

@@ -48,8 +48,8 @@
                             @foreach($Category_name as $c)
 
                             <div class="input-checkbox">
-                                <input type="checkbox" id="category-1">
-                                <label for="category-1">
+                                <input type="checkbox" id="{{$c  -> category_name}}">
+                                <label for="{{$c  -> category_name}}">
                                     <span></span>
                                     {{$c  -> category_name}}
                                     <small>(123)</small>
@@ -86,11 +86,11 @@
                         <div class="checkbox-filter">
                             @foreach($Brand_name as $b)
                             <div class="input-checkbox">
-                                <input type="checkbox" id="brand-1">
-                                <label for="brand-1">
+                                <input type="checkbox" id="{{$b  -> brand_name}}">
+                                <label for="{{$b  -> brand_name}}">
                                     <span></span>
                                     {{$b  -> brand_name}}
-                                    <small>(578)</small>
+                                    <small>111</small>
                                 </label>
                             </div>
                             @endforeach
@@ -101,13 +101,13 @@
                     <!-- aside Widget -->
                     <div class="aside">
                         <h3 class="aside-title">Top selling</h3>
-                        @foreach($category_sell as $p)
+                        @foreach($Category->Products()->orderBy('product_name','asc')->take(5)->get() as $p)
                         <div class="product-widget">
                             <div class="product-img">
                                 <img src="{{asset("$p->thumbnail")}}" alt="">
                             </div>
                             <div class="product-body">
-                                <p class="product-category">{{$p->category_name}}</p>
+                                <p class="product-category">{{$p->Brand->brand_name}}</p>
                                 <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                             </div>
@@ -149,14 +149,14 @@
                     <!-- store products -->
                     <div class="row">
                         <!-- product -->
-                        @foreach ($category as $p)
+                        @foreach ($Category->Products()->orderBy('created_at','asc')->take(9)->get()  as $p)
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <div class="product-img">
                                     <img src="{{asset("$p->thumbnail")}}" alt="">
                                 </div>
                                 <div class="product-body">
-                                    <p class="product-category">{{$p->category_name}}</p>
+                                    <p class="product-category">{{$p->Brand->brand_name}}</p>
                                     <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
                                     <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                     <div class="product-btns">

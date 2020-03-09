@@ -32,9 +32,8 @@ class Webcontroller extends Controller
         $Category_name = Category::get();
         $Brand_name = Brand::get();
         $Category= Category::find($id);
-        $category= Product::where("category_id",$Category->id)->take(9)->orderBy('price','desc')->get();
-        $category_sell= Product::where("category_id",$Category->id)->take(6)->orderBy('price','desc')->get();
-       return view("store",['Category_name'=>$Category_name,'Brand_name'=>$Brand_name,'Category'=>$Category,'category'=>$category,'category_sell'=>$category_sell]);
+        //$category >Products ; //Lấy tất cả product của category này
+       return view("store",['Category_name'=>$Category_name,'Brand_name'=>$Brand_name,'Category'=>$Category]);
     }
     public function checkout($id){
         $product =Product::find($id);
