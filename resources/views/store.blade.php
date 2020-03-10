@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
                         <li><a href="/">Home</a></li>
-                        <li><a href="#">{{$Category['category_name']}}</a></li>
+                        <li><a href="{{$Category['id']}}">{{$Category['category_name']}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
-                                <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
+                                <h3 class="product-name"><a href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                             </div>
                         </div>

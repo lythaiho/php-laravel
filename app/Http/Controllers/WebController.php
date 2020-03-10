@@ -13,12 +13,13 @@ class Webcontroller extends Controller
     public function homePage(){
         $Category_new= Category::get();
         $Category_hot= Category::get();
+        $Category_sell= Category::get();
         $products = Product::take(10)->orderBy('product_name','asc')->get(); // trả lại một collection với mỗi phần tử là 1 object Product
-        $Laptops = Product::where("category_id",1)->take(10)->orderBy('product_name','asc')->get();
-        $Smartphone = Product::where("category_id",2)->take(10)->orderBy('product_name','asc')->get();
-        $Tablet = Product::where("category_id",3)->take(10)->orderBy('product_name','asc')->get();
+        $Laptops = Product::where("category_id",1)->take(6)->orderBy('product_name','asc')->get();
+        $Smartphone = Product::where("category_id",2)->take(6)->orderBy('product_name','asc')->get();
+        $Tablet = Product::where("category_id",3)->take(6)->orderBy('product_name','asc')->get();
         return view("home-page",["Category_new"=>$Category_new,"Category_hot"=>$Category_hot,"products"=>$products,"Laptops"=>$Laptops,
-            "Smartphone"=>$Smartphone,"Tablet"=>$Tablet]);
+            "Smartphone"=>$Smartphone,"Tablet"=>$Tablet,"Category_sell"=>$Category_sell,]);
     }
 
     public function product($id){

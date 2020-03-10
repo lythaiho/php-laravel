@@ -119,7 +119,7 @@
                                                             <div class="product-body">
                                                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
-                                                                            href="#">{{$p->product_name}}</a></h3>
+                                                                            href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
                                                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                                 <div class="product-rating">
 
@@ -205,7 +205,7 @@
                         </ul>
                         <h2 class="text-uppercase">hot deal this week</h2>
                         <p>New Collection Up to 50% OFF</p>
-                        <a class="primary-btn cta-btn" href="#">Shop now</a>
+                        <a class="primary-btn cta-btn" href="/store/1">Shop now</a>
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@
                                                             <div class="product-body">
                                                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
-                                                                            href="#">{{$p->product_name}}</a></h3>
+                                                                            href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
                                                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup>
                                                                 </h4>
                                                                 <div class="product-rating">
@@ -315,6 +315,72 @@
             </div>
             <!-- /container -->
         </div>
+    </div>
+    <!-- /SECTION -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                @foreach($Category_sell as $cate)
+                    <div class="col-md-4 col-xs-6">
+                        <div class="section-title">
+                            <h4 class="title">{{$cate->category_name}}</h4>
+                            <div class="section-nav">
+                                <div id="{{$cate->category_name}}_2" class="products-slick-nav"></div>
+                            </div>
+                        </div>
+                        <div class="products-widget-slick" data-nav="#{{$cate->category_name}}_2">
+                            <div>
+                            @foreach(${$cate['category_name']} as $p)
+                                @break($loop->index==3)
+                                <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <img src="{{asset("$p->thumbnail")}}" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">{{$p->Brand->brand_name}}</p>
+                                            <h3 class="product-name"><a
+                                                        href="/product/{{$p->id}}">{{$p->product_name}}</a>
+                                            </h3>
+                                            <h4 class="product-price">{{$p->price}}</h4>
+                                        </div>
+                                    </div>
+                                    <!-- /product widget -->
+                                @endforeach
+                            </div>
+
+                            <div>
+                            @foreach(${$cate['category_name']} as $p)
+                                @break($loop->index==6)
+                                @continue($loop->index<3)
+                                <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <img src="{{asset("$p->thumbnail")}}" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">{{$p->Brand->brand_name}}</p>
+                                            <h3 class="product-name"><a
+                                                        href="/product/{{$p->id}}">{{$p->product_name}}</a>
+                                            </h3>
+                                            <h4 class="product-price">{{$p->price}}</h4>
+                                        </div>
+                                    </div>
+                                    <!-- /product widget -->
+                                @endforeach
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                    <!-- /container -->
+                @endforeach
+            </div>
+        </div>
+    </div>
     </div>
     <!-- /SECTION -->
 
