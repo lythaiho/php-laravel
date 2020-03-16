@@ -21,7 +21,7 @@ class CreateProduct extends Migration
             $table->string('gallery')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id');
-            $table->decimal("price",12,3);
+            $table->decimal("price",12,4);
             $table->unsignedBigInteger('quantity')->default(1);
 
             $table->timestamps();
