@@ -152,26 +152,27 @@ class AdminController extends Controller
     public function productStore(Request $request){
         //kiem tra co phai admin hay khong
         $request->validate([
-            'product_name' => 'required|string|unique:products',
-            'product_desc' => 'required',
-            'product_thumbnail' => 'required',
-            'product_gallery' => 'required',
-            'brand_name' => 'required|exists:brands',
-            'category_name' => 'required|exists:categories',
-            'quantity' => 'required',
-            'price' => 'required'
+            "product_name" =>
+                "required|string|unique:product,product_name,",
+            "product_desc" => "required|string",
+            "thumbnail" => "required|string",
+            "gallery" => "required|string",
+            "category_id" => "required|integer",
+            "brand_id" => "required|integer",
+            "price" => "required|numeric",
+            "quantity" => "required|integer"
         ]);
 
         try {
             Product::create([
-                'product_name' => $request->get('product_name'),
-                'product_desc' => $request->get('product_desc'),
-                'product_thumbnail' => $request->get('product_thumbnail'),
-                'product_gallery' => $request->get('product_gallery'),
-                'brand_id' => $request->get('brand_id'),
-                'category_id' => $request->get('category_id'),
-                'quantity' => $request->get('quantity'),
-                'price' => $request->get('price'),
+                "product_name" => $request->get("product_name"),
+                "product_desc" => $request->get("product_desc"),
+                "thumbnail" => $request->get("thumbnail"),
+                "gallery" => $request->get("gallery"),
+                "category_id" => $request->get("category_id"),
+                "brand_id" => $request->get("brand_id"),
+                "price" => $request->get("price"),
+                "quantity" => $request->get("quantity")
 
             ]);
         }catch (\Exception $e){
@@ -190,30 +191,28 @@ class AdminController extends Controller
         //kiem tra co phai admin hay khong
         $product = Product::find($id);
         $request->validate([
-            'product_name' => [
-                'required',
-                Rule::unique('products')->ignore($request->get('id'))
-            ],
-            'product_desc' => 'required',
-            'product_thumbnail' => 'required',
-            'product_gallery' => 'required',
-            'brand_name' => 'required|exists:brands',
-            'category_name' => 'required|exists:categories',
-            'quantity' => 'required',
-            'price' => 'required'
+            "product_name" =>
+                "required|string|unique:product,product_name," . $id,
+            "product_desc" => "required|string",
+            "thumbnail" => "required|string",
+            "gallery" => "required|string",
+            "category_id" => "required|integer",
+            "brand_id" => "required|integer",
+            "price" => "required|numeric",
+            "quantity" => "required|integer"
         ]);
         try {
             $product->update([
-                    'product_name' => $request->get('product_name'),
-                    'product_desc' => $request->get('product_desc'),
-                    'product_thumbnail' => $request->get('product_thumbnail'),
-                    'product_gallery' => $request->get('product_gallery'),
-                    'brand_id' => Brand::where('brand_name', $request->get('brand_name'))->get()[0]['id'],
-                    'category_id' => Category::where('category_name', $request->get('category_name'))->get()[0]['id'],
-                    'quantity' => $request->get('quantity'),
-                    'price' => $request->get('price'),
-                ]);
-        }catch (\Exception $e){
+                "product_name" => $request->get("product_name"),
+                "product_desc" => $request->get("product_desc"),
+                "thumbnail" => $request->get("thumbnail"),
+                "gallery" => $request->get("gallery"),
+                "category_id" => $request->get("category_id"),
+                "brand_id" => $request->get("brand_id"),
+                "price" => $request->get("price"),
+                "quantity" => $request->get("quantity")
+            ]);
+        } catch (Exception $e) {
             return redirect()->back();
         }
         return redirect()->to("admin/product");
