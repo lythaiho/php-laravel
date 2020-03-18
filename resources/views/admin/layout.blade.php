@@ -29,16 +29,16 @@
                             <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                             <li>
-                                <a href="index.html">Dashboard 1</a>
+                                <a href="index.html">Product</a>
                             </li>
                             <li>
-                                <a href="index2.html">Dashboard 2</a>
+                                <a href="index2.html">Category</a>
                             </li>
                             <li>
-                                <a href="index3.html">Dashboard 3</a>
+                                <a href="index3.html">Brand</a>
                             </li>
                             <li>
-                                <a href="index4.html">Dashboard 4</a>
+                                <a href="index4.html">List User</a>
                             </li>
                         </ul>
                     </li>
@@ -137,16 +137,16 @@
                             <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="index.html">Dashboard 1</a>
+                                <a href="{{url('admin/product')}}">Product</a>
                             </li>
                             <li>
-                                <a href="index2.html">Dashboard 2</a>
+                                <a href="{{url('admin/category')}}">Category</a>
                             </li>
                             <li>
-                                <a href="index3.html">Dashboard 3</a>
+                                <a href="{{url('admin/brand')}}">Brand</a>
                             </li>
                             <li>
-                                <a href="index4.html">Dashboard 4</a>
+                                <a href="{{url('admin/list-user')}}">ListUser</a>
                             </li>
                         </ul>
                     </li>
