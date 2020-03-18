@@ -1,7 +1,7 @@
 <?php
 
 // route for admin
-Route::prefix("admin")->group(function (){
+Route::prefix("admin")->middleware("check_admin")->group(function (){
     include_once ("admin.php");
 });
 
@@ -29,3 +29,10 @@ Route::get("/","WebController@homePage");
 Route::get("/product/{id}","WebController@product");
 Route::get("/store/{id}","WebController@store");
 Route::get("/checkout/{id}","WebController@checkout");
+Auth::routes();
+
+Route::get('/logout', function (){
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect()->to("/login");
+});
+

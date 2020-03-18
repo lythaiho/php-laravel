@@ -11,6 +11,9 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-//        factory(\App\Category::class,100)->create();
+        //factory(\App\Category::class,100)->create();
+        //factory(\App\Brand::class,100)->create();
+        //factory(\App\Product::class,5)->create();
+        factory(\App\User::class,10)->create();
     }
 }

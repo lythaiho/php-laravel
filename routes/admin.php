@@ -22,3 +22,25 @@ Route::post("brand/update/{id}","AdminController@brandUpdate");
 
 Route::get('brand/delete/{id}',"AdminController@brandDestroy");
 //brand end
+//product stat
+Route::get('product',"AdminController@product");
+Route::get('product/create',"AdminController@productCreate");
+Route::post('product/store',"AdminController@productStore");
+
+Route::get("product/edit/{id}","AdminController@productEdit");
+Route::post("product/update/{id}","AdminController@productUpdate");
+
+Route::get('product/delete/{id}',"AdminController@productDestroy");
+//product end
+
+//user start
+Route::get('list-user',"AdminController@listUser");
+
+Route::get('list-user/create',"AdminController@UserCreate");
+Route::post('list-user/post',"AdminController@UserPost");
+
+Route::get('list-user/edit/{id}',"AdminController@UserEdit");
+Route::post('list-user/update/{id}',"AdminController@UserUpdate");
+
+Route::get('list-user/delete/{id}',"AdminController@UserDestroy");
+//user end
