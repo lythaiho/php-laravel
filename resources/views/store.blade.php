@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="{{url("/")}}">Home</a></li>
                         <li><a href="{{$category['id']}}">{{$category['category_name']}}</a></li>
                     </ul>
                 </div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
-                                <h3 class="product-name"><a href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
+                                <h3 class="product-name"><a href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                             </div>
                         </div>
@@ -160,18 +160,18 @@
                                 </div>
                                 <div class="product-body">
                                     <p class="product-category">{{$p->Brand->brand_name}}</p>
-                                    <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
+                                    <h3 class="product-name"><a href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
                                     <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                     <div class="product-btns">
                                         <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                         <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                        <a href="/product/{{$p->id}}">
+                                        <a href="{{url("/product/{$p->id}")}}">
                                             <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="add-to-cart">
-                                    <a href="/checkout/{{$p->id}}">
+                                    <a href="{{url("/shopping/{$p->id}")}}">
                                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                     </a>
                                 </div>

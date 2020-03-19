@@ -134,10 +134,14 @@
                         <div><strong>TOTAL</strong></div>
                     </div>
                     <div class="order-products">
-                        <div class="order-col">
-                            <div>{{$product->product_name}}</div>
-                            <div>{{$product->price}}<sup>đ</sup></div>
-                        </div>
+                        @forelse($cart as $p)
+                            <div class="order-col">
+                                <div>{{$p->product_name}}</div>
+                                <div>{{$p->price}}<sup>đ</sup></div>
+                            </div>
+                        @empty
+                            <p>Khong co danh muc nao</p>
+                        @endforelse
                     </div>
                     <div class="order-col">
                         <div>Shiping</div>
@@ -145,7 +149,7 @@
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total">{{$product->price}}</strong></div>
+                        <div><strong class="order-total"></strong></div>
                     </div>
                 </div>
                 <div class="payment-method">

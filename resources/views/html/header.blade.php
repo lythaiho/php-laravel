@@ -24,7 +24,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="/" class="logo">
+                        <a href="{{url("/")}}" class="logo">
                             <img src="{{asset("./img/logo.png")}}" alt="">
                         </a>
                     </div>
@@ -71,35 +71,34 @@
                             </a>
                             <div class="cart-dropdown">
                                 <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/shop01.png" alt="">
+                                    @php
+                                    $cart = session("cart");
+                                    if($cart==null){
+                                        $cart= [];
+                                    }
+                                    @endphp
+                                    @forelse($cart as $p)
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="{{asset("$p->thumbnail")}}" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
+                                                <h4 class="product-price"><span class="qty">Qty: </span>{{$p->cart_qty}}  <span class="qty">Price:</span> {{$p->getPrice()}}</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
                                         </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/shop02.png" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
+                                    @empty
+                                        <p>Khong co danh muc nao</p>
+                                    @endforelse
                                 </div>
                                 <div class="cart-summary">
                                     <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
+{{--                                    <h5>SUBTOTAL: {{$cart_total}}</h5>--}}
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="#">View Cart</a>
-                                    <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="{{url("/shopping/{$p->id}")}}">View Cart</a>
+                                    <a href="{{url("/checkout/{$p->id}")}}">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

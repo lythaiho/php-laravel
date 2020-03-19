@@ -28,11 +28,15 @@ Route::prefix("admin")->middleware("check_admin")->group(function (){
 Route::get("/","WebController@homePage");
 Route::get("/product/{id}","WebController@product");
 Route::get("/store/{id}","WebController@store");
+Route::get("/shopping/{id}","WebController@shopping")->middleware("auth");
 Route::get("/checkout/{id}","WebController@checkout");
+Route::get("/cart","WebController@cart");
+Route::get("/clear-cart","WebController@clearCart");
 Auth::routes();
 
 Route::get('/logout', function (){
     \Illuminate\Support\Facades\Auth::logout();
+    session()->flush();
     return redirect()->to("/login");
 });
 

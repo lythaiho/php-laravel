@@ -26,7 +26,7 @@
                         </div>
                         <div class="shop-body">
                             <h3>Laptop<br>Collection</h3>
-                            <a href="/store/1" class="cta-btn">Shop now <i
+                            <a href="{{url("/store/1")}}" class="cta-btn">Shop now <i
                                         class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="shop-body">
                             <h3>Smartphone<br>Collection</h3>
-                            <a href="/store/2" class="cta-btn">Shop now <i
+                            <a href="{{url("/store/2")}}" class="cta-btn">Shop now <i
                                         class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="shop-body">
                             <h3>Tablet<br>Collection</h3>
-                            <a href="/store/3" class="cta-btn">Shop now <i
+                            <a href="{{url("/store/3")}}" class="cta-btn">Shop now <i
                                         class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                                                             <div class="product-body">
                                                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
-                                                                            href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
+                                                                            href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
                                                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
                                                                 <div class="product-rating">
 
@@ -133,7 +133,7 @@
                                                                                 class="fa fa-exchange"></i><span
                                                                                 class="tooltipp">add to compare</span>
                                                                     </button>
-                                                                    <a href="/product/{{$p->id}}">
+                                                                    <a href="{{url("/product/{$p->id}")}}">
                                                                         <button class="quick-view"><i
                                                                                     class="fa fa-eye"></i><span
                                                                                     class="tooltipp">quick view</span>
@@ -142,7 +142,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="add-to-cart">
-                                                                <a href="/checkout/{{$p->id}}">
+                                                                <a href="{{url("/shopping/{$p->id}")}}">
                                                                     <button class="add-to-cart-btn"><i
                                                                                 class="fa fa-shopping-cart"></i> add to
                                                                         cart
@@ -205,7 +205,7 @@
                         </ul>
                         <h2 class="text-uppercase">hot deal this week</h2>
                         <p>New Collection Up to 50% OFF</p>
-                        <a class="primary-btn cta-btn" href="/store/1">Shop now</a>
+                        <a class="primary-btn cta-btn" href="{{url("/store/1")}}">Shop now</a>
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@
                                                             <div class="product-body">
                                                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
-                                                                            href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
+                                                                            href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
                                                                 <h4 class="product-price">{{$p->price}}<sup>đ</sup>
                                                                 </h4>
                                                                 <div class="product-rating">
@@ -281,7 +281,7 @@
                                                                                 class="fa fa-exchange"></i><span
                                                                                 class="tooltipp">add to compare</span>
                                                                     </button>
-                                                                    <a href="/product/{{$p->id}}">
+                                                                    <a href="{{url("/product/{$p->id}")}}">
                                                                         <button class="quick-view"><i
                                                                                     class="fa fa-eye"></i><span
                                                                                     class="tooltipp">quick view</span>
@@ -290,7 +290,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="add-to-cart">
-                                                                <a href="/checkout/{{$p->id}}">
+                                                                <a href="{{url("/shopping/{$p->id}")}}">
                                                                     <button class="add-to-cart-btn"><i
                                                                                 class="fa fa-shopping-cart"></i> add
                                                                         to cart
@@ -344,7 +344,7 @@
                                         <div class="product-body">
                                             <p class="product-category">{{$p->Brand->brand_name}}</p>
                                             <h3 class="product-name"><a
-                                                        href="/product/{{$p->id}}">{{$p->product_name}}</a>
+                                                        href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a>
                                             </h3>
                                             <h4 class="product-price">{{$p->price}}</h4>
                                         </div>
@@ -365,7 +365,7 @@
                                         <div class="product-body">
                                             <p class="product-category">{{$p->Brand->brand_name}}</p>
                                             <h3 class="product-name"><a
-                                                        href="/product/{{$p->id}}">{{$p->product_name}}</a>
+                                                        href="{{url("/shopping/{$p->id}")}}">{{$p->product_name}}</a>
                                             </h3>
                                             <h4 class="product-price">{{$p->price}}</h4>
                                         </div>

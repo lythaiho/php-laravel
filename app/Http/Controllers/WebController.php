@@ -34,10 +34,59 @@ class Webcontroller extends Controller
         $Brand_name = Brand::get();
         $category= Category::find($id);
         //$category >Products ; //Lấy tất cả product của category này
-       return view("store",['Category_name'=>$Category_name,'Brand_name'=>$Brand_name,'category'=>$category]);
+        return view("store",['Category_name'=>$Category_name,'Brand_name'=>$Brand_name,'category'=>$category]);
     }
-    public function checkout($id){
-        $product =Product::find($id);
-        return view("checkout",["product"=>$product]);
+
+
+    public function shopping($id, Request $request)
+    {
+        $product = Product::find($id);
+        //session(['key'=>'value']);// truyen mot gia tri vao session theo key
+        /*
+         * cart => array product (product->cart_qty= so luong mua)
+         */
+        $cart = $request->session()->get("cart");
+        if ($cart == null) {
+            $cart = [];
+        }
+
+        foreach ($cart as $p) {
+            if ($p->id == $product->id) {
+                $p->cart_qty = $p->cart_qty + 1;
+                session(["cart"=>$cart]);
+                return redirect()->to("cart");
+            }
+        }
+        $product->cart_qty =1;
+        $cart[]= $product;
+        session(["cart"=>$cart]);
+        return redirect()->to("cart");
+
     }
+    public function cart(Request $request)
+    {
+        $cart=$request->session()->get("cart");
+        if ($cart == null) {
+            $cart = [];
+        }
+        $cart_total =0;
+        foreach ($cart as $p){
+            $cart_total +=($p->price*$p->cart_qty);
+        }
+        return view("cart",["cart"=>$cart,"cart_total"=>$cart_total]);
+    }
+    public function clearCart(Request $request)
+    {
+        $request->session()->forget("cart");
+
+        return redirect()->to("/");
+    }
+    public function checkout(Request $request){
+        $cart=$request->session()->get("cart");
+        if ($cart == null) {
+            $cart = [];
+        }
+        return view("checkout",["cart"=>$cart]);
+    }
+
 }

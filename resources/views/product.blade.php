@@ -95,7 +95,7 @@
                                     <span class="qty-down">-</span>
                                 </div>
                             </div>
-                                <a href="/checkout/{{$product->id}}">
+                                <a href="{{url("shopping/{$product->id}")}}">
                                     <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                 </a>
                         </div>
