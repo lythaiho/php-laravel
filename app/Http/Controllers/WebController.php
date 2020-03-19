@@ -32,9 +32,9 @@ class Webcontroller extends Controller
     public function store($id) {
         $Category_name = Category::get();
         $Brand_name = Brand::get();
-        $Category= Category::find($id);
+        $category= Category::find($id);
         //$category >Products ; //Lấy tất cả product của category này
-       return view("store",['Category_name'=>$Category_name,'Brand_name'=>$Brand_name,'Category'=>$Category]);
+       return view("store",['Category_name'=>$Category_name,'Brand_name'=>$Brand_name,'category'=>$category]);
     }
     public function checkout($id){
         $product =Product::find($id);

@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
                         <li><a href="/">Home</a></li>
-                        <li><a href="{{$Category['id']}}">{{$Category['category_name']}}</a></li>
+                        <li><a href="{{$category['id']}}">{{$category['category_name']}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     <!-- aside Widget -->
                     <div class="aside">
                         <h3 class="aside-title">Top selling</h3>
-                        @foreach($Category->Products()->orderBy('product_name','asc')->take(5)->get() as $p)
+                        @foreach($category->Products()->orderBy('product_name','asc')->take(5)->get() as $p)
                         <div class="product-widget">
                             <div class="product-img">
                                 <img src="{{asset("$p->thumbnail")}}" alt="">
@@ -148,7 +148,11 @@
                     <!-- store products -->
                     <div class="row">
                         <!-- product -->
-                        @foreach ($Category->Products()->orderBy('created_at','asc')->take(9)->get()  as $p)
+                        @php
+                        $cate = $category->Products()->orderBy('created_at','asc')->take(100)->paginate(9);
+                        @endphp
+
+                        @foreach ($cate  as $p)
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <div class="product-img">
@@ -182,15 +186,8 @@
                     <!-- /store products -->
 
                     <!-- store bottom filter -->
-                    <div class="store-filter clearfix">
-                        <span class="store-qty">Showing 20-100 products</span>
-                        <ul class="store-pagination">
-                            <li class="active">1</li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
+                    <div class="store-filter clearfix text-right">
+                        {{ $cate->links() }}
                     </div>
                     <!-- /store bottom filter -->
                 </div>
