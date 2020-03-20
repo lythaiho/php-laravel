@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Webcontroller extends Controller
 {
@@ -82,11 +85,54 @@ class Webcontroller extends Controller
         return redirect()->to("/");
     }
     public function checkout(Request $request){
-        $cart=$request->session()->get("cart");
-        if ($cart == null) {
-            $cart = [];
+        if(!$request->session()->has("cart")){
+            return redirect()->to("/");
         }
-        return view("checkout",["cart"=>$cart]);
+
+
+        $cart=$request->session()->get("cart");
+        $cart_total =0;
+        foreach ($cart as $p){
+            $cart_total +=($p->price*$p->cart_qty);
+        }
+        return view("checkout",["cart"=>$cart,"cart_total"=>$cart_total]);
+    }
+
+    public function placeOrder(Request $request){
+        $request->validate([
+           'customer_name'=>'required | string',
+           'shipping_address'=>'required',
+           'payment_method'=>'required',
+           'telephone'=>'required',
+        ]);
+        $cart =$request->session()->get("cart");
+        $grand_total=0;
+        foreach ($cart as $p){
+            $grand_total+=($p->price * $p->cart_qty);
+        }
+        $order =Order::create([
+           'user_id'=>Auth::id(),
+            'customer_name'=>$request->get("customer_name"),
+            'shipping_address'=>$request->get("shipping_address"),
+            'telephone'=>$request->get("telephone"),
+            'grand_total'=>$grand_total,
+            'payment_method'=>$request->get("payment_method"),
+            'status'=>Order::STATUS_PENDING
+        ]);
+        foreach ($cart as $p){
+            DB::table("orders_product")->insert([
+                'order_id'=>$order->id,
+                'product_id'=>$order->id,
+                'qty'=>$p->cart_qty,
+                'price'=>$p->price,
+
+            ]);
+        }
+        session()->forget('cart');
+        return redirect()->to("checkout_success");
+    }
+    public function checkoutSuccess(){
+        return view("shopping-success");
     }
 
 }

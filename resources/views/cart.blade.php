@@ -44,7 +44,7 @@
                     </tbody>
                 </table>
             </div>
-        <a href="{{url("/checkout/{$p->id}")}}">
+        <a href="{{url("/checkout")}}">
             <button class="btn btn-primary">Checkout</button>
         </a>
         <a href="{{url("/clear-cart")}}">

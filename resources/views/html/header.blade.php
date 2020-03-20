@@ -97,8 +97,8 @@
 {{--                                    <h5>SUBTOTAL: {{$cart_total}}</h5>--}}
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="{{url("/shopping/{$p->id}")}}">View Cart</a>
-                                    <a href="{{url("/checkout/{$p->id}")}}">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="{{url("/cart")}}">View Cart</a>
+                                    <a href="{{url("/checkout")}}">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
