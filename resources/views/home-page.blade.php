@@ -120,7 +120,7 @@
                                                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
                                                                             href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
-                                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
+                                                                <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup></h4>
                                                                 <div class="product-rating">
 
                                                                 </div>
@@ -267,7 +267,7 @@
                                                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
                                                                 <h3 class="product-name"><a
                                                                             href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
-                                                                <h4 class="product-price">{{$p->price}}<sup>đ</sup>
+                                                                <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup>
                                                                 </h4>
                                                                 <div class="product-rating">
 
@@ -346,7 +346,7 @@
                                             <h3 class="product-name"><a
                                                         href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a>
                                             </h3>
-                                            <h4 class="product-price">{{$p->price}}</h4>
+                                            <h4 class="product-price">{{$p->getPrice()}}</h4>
                                         </div>
                                     </div>
                                     <!-- /product widget -->
@@ -367,7 +367,7 @@
                                             <h3 class="product-name"><a
                                                         href="{{url("/shopping/{$p->id}")}}">{{$p->product_name}}</a>
                                             </h3>
-                                            <h4 class="product-price">{{$p->price}}</h4>
+                                            <h4 class="product-price">{{$p->getPrice()}}</h4>
                                         </div>
                                     </div>
                                     <!-- /product widget -->

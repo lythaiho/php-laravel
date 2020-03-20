@@ -137,7 +137,7 @@
                         @forelse($cart as $p)
                             <div class="order-col">
                                 <div>{{$p->product_name}}</div>
-                                <div>{{$p->price}}<sup>đ</sup></div>
+                                <div>{{$p->getPrice()}}<sup>đ</sup></div>
                             </div>
                         @empty
                             <p>Khong co danh muc nao</p>

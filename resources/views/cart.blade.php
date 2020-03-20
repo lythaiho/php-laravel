@@ -29,7 +29,7 @@
                             <td>{{$p->Category->category_name}}</td>
                             <td>{{$p->Brand->brand_name}}</td>
                             <td class="text-center">{{$p->cart_qty}}</td>
-                            <td class="text-center">{{$p->getPrice( )}}</td>
+                            <td class="text-center">{{$p->getPrice()}}</td>
                             <td class="text-center">{{$p->price*$p->cart_qty}}</td>
                         </tr>
                     @empty

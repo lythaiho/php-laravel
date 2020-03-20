@@ -108,7 +108,7 @@
                             <div class="product-body">
                                 <p class="product-category">{{$p->Brand->brand_name}}</p>
                                 <h3 class="product-name"><a href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
-                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
+                                <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup></h4>
                             </div>
                         </div>
                         @endforeach
@@ -161,7 +161,7 @@
                                 <div class="product-body">
                                     <p class="product-category">{{$p->Brand->brand_name}}</p>
                                     <h3 class="product-name"><a href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a></h3>
-                                    <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
+                                    <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup></h4>
                                     <div class="product-btns">
                                         <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                         <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>

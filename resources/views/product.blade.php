@@ -66,7 +66,7 @@
 
                         <h2 class="product-name">{{$product ->product_name}}</h2>
                         <div>
-                            <h3 class="product-price">{{$product ->price}}<sup>đ</sup></h3>
+                            <h3 class="product-price">{{$product ->getPrice()}}<sup>đ</sup></h3>
                             <span class="product-available">In Stock</span>
                         </div>
                         <p>{{$product ->product_desc}}</p>
@@ -152,7 +152,7 @@
                         <div class="product-body">
                             <p class="product-category">{{$product ->Brand->brand_name}}</p>
                             <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
-                            <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
+                            <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup></h4>
                             <div class="product-rating">
                             </div>
                             <div class="product-btns">
@@ -200,7 +200,7 @@
                             <div class="product-body">
                                 <p class="product-category">{{$product ->Brand->brand_name}}</p>
                                 <h3 class="product-name"><a href="#">{{$p->product_name}}</a></h3>
-                                <h4 class="product-price">{{$p->price}}<sup>đ</sup></h4>
+                                <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup></h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
