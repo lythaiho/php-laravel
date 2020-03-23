@@ -67,7 +67,7 @@
                         <h2 class="product-name">{{$product ->product_name}}</h2>
                         <div>
                             <h3 class="product-price">{{$product ->getPrice()}}<sup>đ</sup></h3>
-                            <span class="product-available">In Stock</span>
+                            <span class="product-available">In Stock: {{$product->quantity}}</span>
                         </div>
                         <p>{{$product ->product_desc}}</p>
 
@@ -90,7 +90,7 @@
                             <div class="qty-label">
                                 Qty
                                 <div class="input-number">
-                                    <input type="number" value="{{$product ->quantity}}">
+                                    <input name="number" type="number" value="1">
                                     <span class="qty-up">+</span>
                                     <span class="qty-down">-</span>
                                 </div>
@@ -107,8 +107,8 @@
 
                         <ul class="product-links">
                             <li>Category:</li>
-                            <li><a href="#">Headphones</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            <li><a href="{{url("store/{$product->Category->id}")}}">{{$product->Category->category_name}}</a></li>
+                            <li><a href="#">{{$product->Brand->brand_name}}</a></li>
                         </ul>
 
                         <ul class="product-links">
@@ -158,7 +158,7 @@
                             <div class="product-btns">
                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                 <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                <a href="/product/{{$p->id}}">
+                                <a href="{{url("/product/{$p->id}")}}">
                                     <button class="quick-view"><i
                                                 class="fa fa-eye"></i><span
                                                 class="tooltipp">quick view</span>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="add-to-cart">
-                            <a href="/checkout/{{$p->id}}">
+                            <a href="{{url("/shopping/{$p->id}")}}">
                                 <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                             </a>
                         </div>
@@ -206,7 +206,7 @@
                                 <div class="product-btns">
                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                     <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <a href="/product/{{$p->id}}">
+                                    <a href="{{url("/product/{$p->id}")}}">
                                         <button class="quick-view"><i
                                                     class="fa fa-eye"></i><span
                                                     class="tooltipp">quick view</span>
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
                             <div class="add-to-cart">
-                                <a href="/checkout/{{$p->id}}">
+                                <a href="{{url("/shopping/{$p->id}")}}">
                                     <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                 </a>
                             </div>

@@ -2,6 +2,24 @@
 @section('title',"Trang chủ")
 
 @section('content')
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb-tree">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">cart</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
 
     <section>
         <div class="container">
@@ -19,6 +37,7 @@
                         <th class="text-center" scope="col">Số lượng</th>
                         <th class="text-center" scope="col">Đơn giá</th>
                         <th class="text-center" scope="col">Thành tiền</th>
+                        <th class="text-center" scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,16 +50,13 @@
                             <td class="text-center">{{$p->cart_qty}}</td>
                             <td class="text-center">{{$p->getPrice()}}</td>
                             <td class="text-center">{{$p->price*$p->cart_qty}}</td>
+                            <td class="text-center">
+                                <a href="{{url("/clearCart/{$p ->id}")}}">Xoa</a>
+                            </td>
                         </tr>
                     @empty
                         <p>Khong co danh muc nao</p>
                     @endforelse
-
-                    <tr>
-                        <th scope="row" colspan="5"></th>
-                        <td class="text-center">Tổng tiền</td>
-                        <td class="text-center">{{$cart_total}}</td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

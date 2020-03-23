@@ -1,6 +1,7 @@
 
 <?php
 
+Route::get('dashboard',"AdminController@homeAdmin");
 //category stat
 Route::get('category',"AdminController@category");
 Route::get('category/create',"AdminController@categoryCreate");
@@ -44,3 +45,11 @@ Route::post('list-user/update/{id}',"AdminController@UserUpdate");
 
 Route::get('list-user/delete/{id}',"AdminController@UserDestroy");
 //user end
+
+//order start
+Route::get('list-order',"AdminController@listOrder");
+Route::get('order-detail/{id}',"AdminController@orderDetail");
+Route::post("order-detail/update/{id}","AdminController@orderUpdate");
+
+Route::get('list-order/delete/{id}',"AdminController@orderDestroy");
+//order end

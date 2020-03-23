@@ -8,8 +8,8 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i>Truong Thinh Building, Trang An Complex, 1 Phùng Chí Kiên, Cầu Giấy</a></li>
             </ul>
             <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                <li><a href="{{url("admin/dashboard")}}"><i class="fa fa-lock" aria-hidden="true"></i> Admin Dashboard</a></li>
+                <li><a href="{{url("logout")}}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
             </ul>
         </div>
     </div>
@@ -36,11 +36,9 @@
                     <div class="header-search">
                         <form>
                             <select class="input-select">
-
-                                <option value="0">All Categories</option>
-                                <option value="1">Laptops</option>
-                                <option value="2">Smartphones</option>
-                                <option value="3">Tablet</option>
+                                <option value="0">Laptops</option>
+                                <option value="1">Smartphones</option>
+                                <option value="2">Tablet</option>
                             </select>
                             <input class="input" placeholder="Search here">
                             <button class="search-btn">Search</button>

@@ -177,7 +177,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="hot-deal">
-                        <ul class="hot-deal-countdown"  countdown="" data-date="March 20 2020 10:10:10">
+                        <ul class="hot-deal-countdown"  countdown="" data-date="March 30 2020 10:10:10">
                             <li>
                                 <div>
                                     <h3 data-days="">00</h3>
@@ -346,7 +346,7 @@
                                             <h3 class="product-name"><a
                                                         href="{{url("/product/{$p->id}")}}">{{$p->product_name}}</a>
                                             </h3>
-                                            <h4 class="product-price">{{$p->getPrice()}}</h4>
+                                            <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup></h4>
                                         </div>
                                     </div>
                                     <!-- /product widget -->
@@ -367,7 +367,7 @@
                                             <h3 class="product-name"><a
                                                         href="{{url("/shopping/{$p->id}")}}">{{$p->product_name}}</a>
                                             </h3>
-                                            <h4 class="product-price">{{$p->getPrice()}}</h4>
+                                            <h4 class="product-price">{{$p->getPrice()}}<sup>đ</sup></h4>
                                         </div>
                                     </div>
                                     <!-- /product widget -->

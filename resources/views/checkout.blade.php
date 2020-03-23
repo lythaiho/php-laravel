@@ -104,7 +104,7 @@
                     </div>
                     <div class="payment-method">
                         <div class="input-radio">
-                            <input type="radio" name="payment_method" id="cod">
+                            <input type="radio" name="payment_method" value="cod" id="cod">
                             <label for="cod">
                                 <span></span>
                                 Cash on delievery
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="input-radio">
-                            <input type="radio" name="payment_method" id="credit_card">
+                            <input type="radio" name="payment_method" value="credit_card" id="credit_card">
                             <label for="credit_card">
                                 <span></span>
                                 Credit card
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="input-radio">
-                            <input type="radio" name="payment_method" id="bank_transfer">
+                            <input type="radio" name="payment_method" value="bank_transfer" id="bank_transfer">
                             <label for="bank_transfer">
                                 <span></span>
                                 Direct bank transfer

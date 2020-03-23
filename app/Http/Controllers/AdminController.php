@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Order;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
@@ -10,6 +11,12 @@ use App\Category;
 
 class AdminController extends Controller
 {
+    public function homeAdmin(){
+        //kiem tra co phai admin hay khong
+        $categories = Category::all();
+        return view('admin.dashboard',['categories'=>$categories]);
+    }
+
     //category start
     public function category(){
         //kiem tra co phai admin hay khong
@@ -301,4 +308,57 @@ class AdminController extends Controller
     }
 
     //user end
+
+    //order start
+    public function listOrder(){
+        //kiem tra co phai admin hay khong
+        $listOrder= Order::all();
+        return view("admin.order-cart.index",["listOrder"=>$listOrder]);
+    }
+
+    public function orderDetail($id){
+        //kiem tra co phai admin hay khong
+        $orderDetail = Order::find($id);
+        return view("admin.order-cart.detail",['orderDetail'=>$orderDetail]);
+    }
+    public function orderUpdate($id,Request $request){
+        //kiem tra co phai admin hay khong
+        $orderUpdate = Order::find($id);
+        $request->validate([
+            "customer_name" =>
+                "required|string",
+            "shipping_address" => "required|string",
+            "telephone" => "required|string",
+            "grand_total" => "required|string",
+            "payment_method" => "required|string",
+            "status" => "required|integer",
+        ]);
+        try {
+            $orderUpdate->update([
+                "customer_name" => $request->get("customer_name"),
+                "shipping_address" => $request->get("shipping_address"),
+                "telephone" => $request->get("telephone"),
+                "grand_total" => $request->get("grand_total"),
+                "payment_method" => $request->get("payment_method"),
+                "status" => $request->get("status")
+            ]);
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
+        return redirect()->to("admin/list-order");
+    }
+    public function orderDestroy($id){
+        //kiem tra co phai admin hay khong
+        $orderDestroy = Order::find($id);
+        try {
+            $orderDestroy->delete(); // xoa cung // CRUD
+            // xoa mem
+            // them 1 truong status : 0: Inactive; 1: active
+            // chuyen status tu 1 -> 0
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/list-order");
+    }
+    //order end
 }

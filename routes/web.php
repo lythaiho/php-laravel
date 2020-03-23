@@ -34,6 +34,7 @@ Route::post("checkout",'WebController@placeOrder')->middleware("auth");
 Route::get("shopping-success",'WebController@checkoutSuccess')->middleware("auth");
 Route::get("/cart","WebController@cart");
 Route::get("/clear-cart","WebController@clearCart");
+Route::get("/clearCart/{id}","WebController@clearOneCart");
 Auth::routes();
 
 Route::get('/logout', function (){

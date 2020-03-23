@@ -134,5 +134,20 @@ class Webcontroller extends Controller
     public function checkoutSuccess(){
         return view("shopping-success");
     }
+    public function clearOneCart($id,Request $request)
+    {
+        $cart=$request->session()->get("cart");
+        foreach($cart as $key => $value){
+            //dd($cart[$i]->id);
+            if($value->id == $id){
+               // dd($cart[$i]);
+                unset($cart[$key]);
+                //$request->session()->forget($id);
+            }
+        }
+        $request->session()->put("cart",$cart);
+
+        return redirect()->to("/cart");
+    }
 
 }
