@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Mail\OrderCreated;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class Webcontroller extends Controller
 {
@@ -129,6 +131,7 @@ class Webcontroller extends Controller
             ]);
         }
         session()->forget('cart');
+        Mail::to("lythaiho.95.cscd@gmail.com")->send(new OrderCreated());
         return redirect()->to("checkout-success");
     }
     public function checkoutSuccess(){
