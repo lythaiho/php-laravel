@@ -125,7 +125,7 @@
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
-            <a href="#">
+            <a href="{{url('admin/dashboard')}}">
                 <img src="{{asset(url("admin/images/icon/logo.png"))}}" alt="Cool Admin" />
             </a>
         </div>
@@ -147,6 +147,9 @@
                             </li>
                             <li>
                                 <a href="{{url('admin/list-user')}}">ListUser</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/list-order')}}">List Order</a>
                             </li>
                         </ul>
                     </li>
