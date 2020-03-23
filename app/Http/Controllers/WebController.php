@@ -129,7 +129,7 @@ class Webcontroller extends Controller
             ]);
         }
         session()->forget('cart');
-        return redirect()->to("checkout_success");
+        return redirect()->to("checkout-success");
     }
     public function checkoutSuccess(){
         return view("shopping-success");
