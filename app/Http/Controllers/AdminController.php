@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\liststudent;
 use App\Order;
 use App\Product;
 use App\User;
@@ -361,4 +362,78 @@ class AdminController extends Controller
         return redirect()->to("admin/list-order");
     }
     //order end
+    //liststudent
+    public function listStudent(){
+        //kiem tra co phai admin hay khong
+        $liststudent= liststudent::all();
+        return view("admin.liststudent.list_student",["liststudent"=>$liststudent]);
+    }
+    public function studentCreate(){
+        //kiem tra co phai admin hay khong
+        return view("admin.liststudent.create");
+    }
+
+    public function studentPost(Request $request){
+        //kiem tra co phai admin hay khong
+        $request->validate([ // truyen vao rules de validate
+            "name"=> "required|string",// validation laravel
+            "age"=> "required|integer",
+            "address"=> "required|string",
+            "telephone"=> "required|string",
+        ]);
+        try {
+            liststudent::create([
+                "name"=> $request->get("name"),
+                "age"=> $request->get("age"),
+                "address"=> $request->get("address"),
+                "telephone"=> $request->get("telephone"),
+            ]);
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/list-student");
+    }
+    public function studentEdit($id){
+        //kiem tra co phai admin hay khong
+        $student = liststudent::find($id);
+        return view("admin.list-student.edit",['student'=>$student]);
+    }
+
+    public function studentUpdate($id,Request $request){
+        //kiem tra co phai admin hay khong
+        $student = liststudent::find($id);
+        $request->validate([ // truyen vao rules de validate
+            "name"=> "required|string",// validation laravel
+            "age"=> "required|integer",
+            "address"=> "required|string",
+            "telephone"=> "required|string",
+        ]);
+        try {
+            $student->update([
+                "name"=> $request->get("name"),
+                "age"=> $request->get("age"),
+                "address"=> $request->get("address"),
+                "telephone"=> $request->get("telephone"),
+            ]);
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/list-student");
+    }
+
+    public function studentDestroy($id){
+        //kiem tra co phai admin hay khong
+        $student = liststudent::find($id);
+        try {
+            $student->delete(); // xoa cung // CRUD
+            // xoa mem
+            // them 1 truong status : 0: Inactive; 1: active
+            // chuyen status tu 1 -> 0
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/list-student");
+    }
+
+    //student end
 }

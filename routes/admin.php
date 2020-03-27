@@ -53,3 +53,15 @@ Route::post("order-detail/update/{id}","AdminController@orderUpdate");
 
 Route::get('list-order/delete/{id}',"AdminController@orderDestroy");
 //order end
+
+//student start
+Route::get('list-student',"AdminController@listStudent");
+
+Route::get('list-student/create',"AdminController@studentCreate");
+Route::post('list-student/post',"AdminController@studentPost");
+
+Route::get('list-student/edit/{id}',"AdminController@studentEdit");
+Route::post('list-student/update/{id}',"AdminController@studentUpdate");
+
+Route::get('list-student/delete/{id}',"AdminController@studentDestroy");
+//student end
